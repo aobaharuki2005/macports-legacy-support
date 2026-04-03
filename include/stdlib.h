@@ -86,6 +86,13 @@ __MP__BEGIN_DECLS
 extern void arc4random_buf( void* buf, size_t n );
 __MP__END_DECLS
 
+/*
+ * Emulate CCRandomGenerateBytes
+ */
+__MP__BEGIN_DECLS
+extern CCRNGStatus CCRandomGenerateBytes(void *bytes, size_t count);
+__MP__END_DECLS
+
 #endif /*  __MPLS_SDK_SUPPORT_ARC4RANDOM__ */
 
 #endif /* _MACPORTS_STDLIB_H_ */

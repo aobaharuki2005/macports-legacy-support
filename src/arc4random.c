@@ -495,6 +495,13 @@ arc4random_buf(void* b, size_t n)
     _rs_random_buf(z, b, n);
 }
 
+/* Emulate CCRandomGenerateBytes */
+typedef int32_t CCRNGStatus;
+CCRNGStatus CCRandomGenerateBytes(void *bytes, size_t count) {
+    if (!bytes || !count) return -1;
+    arc4random_buf(bytes, count);
+    return 0;
+}
 
 
 /*
