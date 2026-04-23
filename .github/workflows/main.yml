@@ -17,11 +17,12 @@ jobs:
       - name: build
         id: build
         run: |
-          MACOSX_DEPLOYMENT_TARGET=10.6 \
-          ARCH="x86_64"
-          CXXFLAGS="--target=x86_64-apple-macos10.6 -march=nocona" \
-          CFLAGS="--target=x86_64-apple-macos10.6 -march=nocona"  \
-          make
+            CC="clang --target=x86_64-apple-macos10.6" \
+            CXX="clang++ --target=x86_64-apple-macos10.6" \
+            CFLAGS="-march=nocona -Os" \
+            CXXFLAGS="-march=nocona -Os" \
+            LDFLAGS="--target=x86_64-apple-macos10.6" \
+            make
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v7.0.0
