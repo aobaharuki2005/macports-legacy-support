@@ -20,6 +20,7 @@ jobs:
           MACOSX_DEPLOYMENT_TARGET=10.6 \
           CXXFLAGS="--target=x86_64-apple-macos10.6 -march=nocona" \
           CFLAGS="--target=x86_64-apple-macos10.6 -march=nocona"  \
+          LDFLAGS="--target=x86_64-apple-macos10.6 -march=nocona"
           make
 
       - name: Upload artifacts
